@@ -191,7 +191,7 @@ def LoadInfoDict(input_file, input_dir=None):
       pass
 
   if "fstab_version" not in d:
-    d["fstab_version"] = "1"
+   d["fstab_version"] = "1"
 
   # A few properties are stored as links to the files in the out/ directory.
   # It works fine with the build system. However, they are no longer available
@@ -333,10 +333,10 @@ def LoadRecoveryFSTab(read_helper, fstab_version, type, recovery_fstab_path,
       if not line or line.startswith("#"):
         continue
       pieces = line.split()
-      if not 3 <= len(pieces) <= 4:
-        raise ValueError("malformed recovery.fstab line: \"%s\"" % (line,))
+      if not 3 <= len(pieces) <= 7:
+           raise ValueError("malformed version 1 recovery.fstab line: \"%s\", pieces: %d" % (line,len(pieces),))
       options = None
-      if len(pieces) >= 4:
+      if len(pieces) >= 4 and pieces[3] != 'NULL':
         if pieces[3].startswith("/"):
           device2 = pieces[3]
           if len(pieces) >= 5:
