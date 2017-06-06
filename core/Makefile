@@ -1233,6 +1233,7 @@ endif
 ifdef BOARD_CUSTOM_BOOTIMG_MK
 include $(BOARD_CUSTOM_BOOTIMG_MK)
 endif
+
 endif
 
 # -----------------------------------------------------------------
