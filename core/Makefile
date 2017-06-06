@@ -1704,9 +1704,6 @@ build_ota_package := true
 ifeq ($(TARGET_SKIP_OTA_PACKAGE),true)
 build_ota_package := false
 endif
-ifneq ($(strip $(SANITIZE_TARGET)),)
-build_ota_package := false
-endif
 ifeq ($(TARGET_PRODUCT),sdk)
 build_ota_package := false
 endif
@@ -1714,9 +1711,6 @@ ifneq ($(filter generic%,$(TARGET_DEVICE)),)
 build_ota_package := false
 endif
 ifeq ($(TARGET_NO_KERNEL),true)
-build_ota_package := false
-endif
-ifeq ($(recovery_fstab),)
 build_ota_package := false
 endif
 ifeq ($(TARGET_BUILD_PDK),true)
